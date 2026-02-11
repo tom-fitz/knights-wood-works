@@ -1,23 +1,135 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Knights Wood Works - Quality Custom Woodworking" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<style is:global>
+	:root {
+		/* Color Palette */
+		--olive-leaf: #556b2fff;
+		--silver: #a9a9a9ff;
+		--black: #000000ff;
+		--white: #ffffffff;
+		--laser-green: #39ff14ff;
+		
+		/* Semantic Color Variables */
+		--color-primary: var(--olive-leaf);
+		--color-secondary: var(--silver);
+		--color-dark: var(--black);
+		--color-light: #f5f5f5;
+		--color-white: var(--white);
+		--color-gray: var(--silver);
+		--color-light-gray: #e8e8e8;
+		--color-accent: var(--laser-green);
+		
+		/* Spacing */
+		--spacing-xs: 0.5rem;
+		--spacing-sm: 1rem;
+		--spacing-md: 2rem;
+		--spacing-lg: 4rem;
+		--spacing-xl: 6rem;
+		
+		/* Layout */
+		--max-width: 1200px;
+		--border-radius: 8px;
+	}
+
+	* {
 		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+		line-height: 1.6;
+		color: var(--color-dark);
+		background-color: var(--color-white);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		font-weight: 700;
+	}
+
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	p {
+		margin-bottom: var(--spacing-sm);
+	}
+
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	a:hover {
+		color: var(--color-secondary);
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	section {
+		padding: var(--spacing-xl) var(--spacing-md);
+	}
+
+	.container {
+		max-width: var(--max-width);
+		margin: 0 auto;
 		width: 100%;
-		height: 100%;
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2rem;
+		}
+
+		h2 {
+			font-size: 1.75rem;
+		}
+
+		section {
+			padding: var(--spacing-lg) var(--spacing-sm);
+		}
 	}
 </style>
