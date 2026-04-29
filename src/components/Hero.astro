@@ -44,10 +44,10 @@
 		z-index: 1;
 		background: linear-gradient(
 			160deg,
-			rgba(13, 7, 3, 0.25) 0%,
-			rgba(13, 7, 3, 0.1) 30%,
-			rgba(13, 7, 3, 0.65) 75%,
-			rgba(13, 7, 3, 0.92) 100%
+			rgba(20, 24, 32, 0.25) 0%,
+			rgba(20, 24, 32, 0.1) 30%,
+			rgba(20, 24, 32, 0.65) 75%,
+			rgba(20, 24, 32, 0.92) 100%
 		);
 	}
 
@@ -58,7 +58,7 @@
 		flex-direction: column;
 		justify-content: flex-end;
 		height: 100%;
-		padding: calc(var(--header-height) + var(--spacing-sm)) clamp(var(--spacing-sm), 5vw, var(--spacing-md)) var(--spacing-lg);
+		padding: calc(var(--header-height) + var(--spacing-sm)) clamp(var(--spacing-sm), 5vw, var(--spacing-md)) calc(var(--spacing-lg) + 11.85rem);
 		max-width: calc(var(--max-width) + 4rem);
 		margin: 0 auto;
 		width: 100%;
@@ -91,13 +91,13 @@
 		max-width: 280px;
 		font-size: 0.9rem;
 		line-height: 1.7;
-		color: rgba(245, 237, 216, 0.65);
+		color: rgba(255, 255, 255, 0.65);
 		margin: 0;
 	}
 
 	.hero-cta {
 		display: inline-block;
-		border: 1.5px solid rgba(245, 237, 216, 0.45);
+		border: 1.5px solid rgba(255, 255, 255, 0.45);
 		color: var(--color-cream);
 		padding: 1rem 2.25rem;
 		font-size: 0.72rem;
@@ -124,7 +124,7 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 0.75rem;
-		color: rgba(245, 237, 216, 0.45);
+		color: rgba(255, 255, 255, 0.45);
 	}
 
 	.hero-scroll-indicator span {
@@ -137,7 +137,7 @@
 	.scroll-line {
 		width: 1px;
 		height: 52px;
-		background: linear-gradient(to bottom, rgba(245, 237, 216, 0.45), transparent);
+		background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), transparent);
 		animation: scrollPulse 2.5s ease-in-out infinite;
 	}
 
