@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="about">
@@ -13,7 +14,7 @@
 				<p>Every commission starts with a conversation. We want to know how you live, what you love, and what you need the piece to do — not just today, but in twenty years. That obsession with longevity shapes every decision, from the wood we select to the joinery we use.</p>
 				<p>We don't cut corners, and we don't rush. Good wood deserves patience.</p>
 				<div class="about-mark">
-					<img src="/assets/knight_facing_right.png" alt="" />
+					<img src={`${base}assets/knight_facing_right.png`} alt="" />
 				</div>
 			</div>
 		</div>
