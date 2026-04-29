@@ -1,126 +1,122 @@
 ---
+const count = 6;
 ---
 
 <section id="gallery">
 	<div class="container">
-		<h2>Our Work</h2>
-		<p class="gallery-subtitle">Follow us on Instagram to see our latest projects</p>
-		
-		<div class="instagram-notice">
-			<p><strong>Instagram gallery integration</strong></p>
-			<p class="notice-text">To complete the Instagram integration, you'll need to:</p>
-			<ol>
-				<li>Install the loader: <code>npm install astro-loader-ins-medias</code></li>
-				<li>Configure it in your astro.config.mjs</li>
-				<li>Add your Instagram username and fetch the media</li>
-			</ol>
+		<div class="gallery-header">
+			<div>
+				<span class="eyebrow">Portfolio</span>
+				<h2>Our Work</h2>
+			</div>
+			<a href="#" class="insta-link">
+				<span>Follow on Instagram</span>
+				<span class="insta-arrow">→</span>
+			</a>
 		</div>
-
-		<!-- Placeholder gallery grid -->
 		<div class="gallery-grid">
-			<div class="gallery-item">
-				<div class="placeholder">Project 1</div>
-			</div>
-			<div class="gallery-item">
-				<div class="placeholder">Project 2</div>
-			</div>
-			<div class="gallery-item">
-				<div class="placeholder">Project 3</div>
-			</div>
-			<div class="gallery-item">
-				<div class="placeholder">Project 4</div>
-			</div>
-			<div class="gallery-item">
-				<div class="placeholder">Project 5</div>
-			</div>
-			<div class="gallery-item">
-				<div class="placeholder">Project 6</div>
-			</div>
+			{Array.from({ length: count }, (_, i) => (
+				<div class="gallery-item">
+					<div class="gallery-inner">
+						<span class="gallery-label">Project {i + 1}</span>
+					</div>
+				</div>
+			))}
 		</div>
 	</div>
 </section>
 
 <style>
 	#gallery {
-		background-color: var(--color-light);
+		background-color: var(--color-cream);
+		padding: var(--spacing-xl) 0;
 	}
 
-	#gallery h2 {
-		text-align: center;
-		color: var(--color-primary);
-	}
-
-	.gallery-subtitle {
-		text-align: center;
-		color: var(--color-gray);
-		font-size: 1.1rem;
-		margin-bottom: var(--spacing-md);
-	}
-
-	.instagram-notice {
-		background-color: var(--color-white);
-		padding: var(--spacing-md);
-		border-radius: var(--border-radius);
-		border-left: 4px solid var(--color-accent);
+	.gallery-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
 		margin-bottom: var(--spacing-lg);
 	}
 
-	.instagram-notice p {
-		margin-bottom: var(--spacing-sm);
+	.gallery-header h2 {
+		color: var(--color-ink);
+		margin: 0;
 	}
 
-	.instagram-notice .notice-text {
+	.insta-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.75rem;
 		font-weight: 600;
-		margin-top: var(--spacing-sm);
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-amber);
+		transition: gap 0.2s ease;
 	}
 
-	.instagram-notice ol {
-		margin-left: var(--spacing-md);
-		color: var(--color-gray);
+	.insta-link:hover {
+		gap: 0.85rem;
 	}
 
-	.instagram-notice code {
-		background-color: var(--color-light-gray);
-		padding: 2px 6px;
-		border-radius: 4px;
-		font-family: 'Courier New', monospace;
+	.insta-arrow {
+		transition: transform 0.2s ease;
+	}
+
+	.insta-link:hover .insta-arrow {
+		transform: translateX(3px);
 	}
 
 	.gallery-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: var(--spacing-sm);
-		margin-top: var(--spacing-md);
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.5rem;
 	}
 
 	.gallery-item {
-		position: relative;
 		aspect-ratio: 1;
 		overflow: hidden;
-		border-radius: var(--border-radius);
-		background-color: var(--color-white);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
+		position: relative;
+		cursor: pointer;
 	}
 
-	.gallery-item:hover {
-		transform: scale(1.05);
-	}
-
-	.placeholder {
-		width: 100%;
-		height: 100%;
+	.gallery-inner {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, #1c0f06 0%, #2e1a0c 40%, #1c0f06 100%);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: linear-gradient(135deg, var(--color-light-gray) 0%, var(--color-light) 100%);
-		color: var(--color-gray);
-		font-weight: 600;
+		transition: transform 0.5s ease;
+	}
+
+	.gallery-item:hover .gallery-inner {
+		transform: scale(1.04);
+	}
+
+	.gallery-label {
+		font-size: 0.65rem;
+		font-weight: 500;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: rgba(245, 237, 216, 0.18);
+		transition: color 0.3s ease;
+	}
+
+	.gallery-item:hover .gallery-label {
+		color: rgba(245, 237, 216, 0.35);
 	}
 
 	@media (max-width: 768px) {
 		.gallery-grid {
-			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.gallery-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--spacing-sm);
 		}
 	}
 </style>

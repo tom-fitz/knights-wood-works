@@ -1,0 +1,71 @@
+---
+const items = [
+	'Custom Furniture',
+	'Cabinet Making',
+	'Home Renovations',
+	'Repairs & Restoration',
+	'Custom Design',
+	'Commercial Projects',
+];
+---
+
+<div class="marquee-wrap" aria-hidden="true">
+	<div class="marquee-inner">
+		<div class="marquee-group">
+			{items.map(item => (
+				<span class="marquee-item">{item}<span class="sep"> · </span></span>
+			))}
+		</div>
+		<div class="marquee-group">
+			{items.map(item => (
+				<span class="marquee-item">{item}<span class="sep"> · </span></span>
+			))}
+		</div>
+	</div>
+</div>
+
+<style>
+	.marquee-wrap {
+		background-color: var(--color-ink);
+		overflow: hidden;
+		padding: 1.1rem 0;
+		border-top: 1px solid rgba(245, 237, 216, 0.05);
+		border-bottom: 1px solid rgba(245, 237, 216, 0.05);
+	}
+
+	.marquee-inner {
+		display: flex;
+		width: max-content;
+		animation: ticker 28s linear infinite;
+	}
+
+	.marquee-group {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.marquee-item {
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: rgba(245, 237, 216, 0.45);
+		white-space: nowrap;
+		padding: 0 0.25rem;
+	}
+
+	.sep {
+		color: var(--color-amber);
+		opacity: 0.6;
+	}
+
+	@keyframes ticker {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.marquee-inner { animation: none; }
+	}
+</style>

@@ -1,0 +1,87 @@
+---
+---
+
+<div class="stats-section">
+	<div class="stats-grid">
+		<div class="stat">
+			<span class="stat-number">20<sup>+</sup></span>
+			<span class="stat-label">Years of Craft</span>
+		</div>
+		<div class="stat-rule"></div>
+		<div class="stat">
+			<span class="stat-number">500<sup>+</sup></span>
+			<span class="stat-label">Projects Completed</span>
+		</div>
+		<div class="stat-rule"></div>
+		<div class="stat">
+			<span class="stat-number">100%</span>
+			<span class="stat-label">Custom Work</span>
+		</div>
+	</div>
+</div>
+
+<style>
+	.stats-section {
+		background-color: var(--color-ink);
+		padding: var(--spacing-lg) clamp(var(--spacing-sm), 5vw, var(--spacing-md));
+	}
+
+	.stats-grid {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		flex: 1;
+		padding: var(--spacing-sm);
+	}
+
+	.stat-number {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: clamp(3rem, 6vw, 5.5rem);
+		font-weight: 700;
+		color: var(--color-cream);
+		line-height: 1;
+		margin-bottom: 0.6rem;
+	}
+
+	.stat-number sup {
+		font-size: 0.45em;
+		vertical-align: super;
+		color: var(--color-amber);
+	}
+
+	.stat-label {
+		font-size: 0.7rem;
+		font-weight: 500;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: rgba(245, 237, 216, 0.35);
+	}
+
+	.stat-rule {
+		width: 1px;
+		height: 80px;
+		background: rgba(245, 237, 216, 0.08);
+		flex-shrink: 0;
+	}
+
+	@media (max-width: 600px) {
+		.stats-grid {
+			flex-direction: column;
+			gap: var(--spacing-md);
+		}
+
+		.stat-rule {
+			width: 40px;
+			height: 1px;
+		}
+	}
+</style>

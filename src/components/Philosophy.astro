@@ -1,0 +1,65 @@
+---
+---
+
+<div class="philosophy">
+	<div class="phil-inner">
+		<div class="phil-mark">&ldquo;</div>
+		<blockquote>
+			<p>Every piece of wood has a story.<br>We help it find its purpose.</p>
+			<cite>— Knights Wood Works</cite>
+		</blockquote>
+	</div>
+</div>
+
+<style>
+	.philosophy {
+		background-color: var(--color-ink);
+		padding: var(--spacing-xl) clamp(var(--spacing-sm), 5vw, var(--spacing-md));
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.philosophy::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at center, rgba(200, 134, 10, 0.07) 0%, transparent 65%);
+		pointer-events: none;
+	}
+
+	.phil-inner {
+		max-width: 820px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.phil-mark {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 9rem;
+		line-height: 0.55;
+		color: var(--color-amber);
+		opacity: 0.25;
+		margin-bottom: var(--spacing-sm);
+		user-select: none;
+	}
+
+	blockquote p {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: clamp(1.85rem, 4.5vw, 3.25rem);
+		font-style: italic;
+		color: var(--color-cream);
+		line-height: 1.35;
+		margin-bottom: var(--spacing-md);
+	}
+
+	cite {
+		font-style: normal;
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--color-amber);
+		opacity: 0.7;
+	}
+</style>

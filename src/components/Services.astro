@@ -1,82 +1,126 @@
 ---
+const services = [
+	{ num: '01', title: 'Custom Furniture', desc: 'Bespoke pieces designed and crafted to fit your space and style perfectly.' },
+	{ num: '02', title: 'Cabinet Making', desc: 'Precision-built cabinetry for kitchens, offices, and every room between.' },
+	{ num: '03', title: 'Home Renovations', desc: 'Full-scope woodworking for renovations that transform how you live.' },
+	{ num: '04', title: 'Repairs & Restoration', desc: 'Breathing new life into cherished pieces with careful, expert hands.' },
+	{ num: '05', title: 'Custom Design', desc: 'Collaborative process from first sketch to finished piece — your vision, our craft.' },
+	{ num: '06', title: 'Commercial Projects', desc: 'Large-scale installations for hospitality, retail, and office environments.' },
+];
 ---
 
 <section id="services">
 	<div class="container">
-		<h2>Our Services</h2>
-		<div class="services-grid">
-			<div class="service-card">
-				<h3>Custom Furniture</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-			<div class="service-card">
-				<h3>Cabinet Making</h3>
-				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
-			<div class="service-card">
-				<h3>Home Renovations</h3>
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-			</div>
-			<div class="service-card">
-				<h3>Repairs & Restoration</h3>
-				<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-			<div class="service-card">
-				<h3>Custom Design</h3>
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-			</div>
-			<div class="service-card">
-				<h3>Commercial Projects</h3>
-				<p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-			</div>
+		<div class="services-header">
+			<span class="eyebrow">What We Do</span>
+			<h2>Our Services</h2>
+		</div>
+		<div class="services-list">
+			{services.map(s => (
+				<a href="#contact" class="service-row">
+					<span class="service-num">{s.num}</span>
+					<div class="service-info">
+						<h3>{s.title}</h3>
+						<p>{s.desc}</p>
+					</div>
+					<span class="service-arrow">→</span>
+				</a>
+			))}
 		</div>
 	</div>
 </section>
 
 <style>
 	#services {
-		background-color: var(--color-white);
+		background-color: var(--color-surface);
+		padding: var(--spacing-xl) 0;
 	}
 
-	#services h2 {
-		text-align: center;
-		color: var(--color-primary);
+	.services-header {
+		margin-bottom: var(--spacing-lg);
 	}
 
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	.services-header h2 {
+		color: var(--color-ink);
+		margin: 0;
+	}
+
+	.services-list {
+		border-top: 1px solid var(--color-rule);
+	}
+
+	.service-row {
+		display: flex;
+		align-items: center;
 		gap: var(--spacing-md);
-		margin-top: var(--spacing-lg);
-	}
-
-	.service-card {
-		background-color: var(--color-white);
-		padding: var(--spacing-md);
+		padding: 1.75rem 0;
+		border-bottom: 1px solid var(--color-rule);
+		color: var(--color-text);
+		transition: background-color 0.2s ease, padding 0.2s ease;
 		border-radius: var(--border-radius);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		text-align: center;
 	}
 
-	.service-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+	.service-row:hover {
+		background-color: rgba(200, 134, 10, 0.05);
+		padding-left: 1rem;
+		padding-right: 1rem;
+		margin: 0 -1rem;
 	}
 
-	.service-card h3 {
-		color: var(--color-primary);
-		margin-bottom: var(--spacing-sm);
+	.service-num {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 0.8rem;
+		color: var(--color-amber);
+		opacity: 0.6;
+		width: 2rem;
+		flex-shrink: 0;
 	}
 
-	.service-card p {
-		color: var(--color-gray);
-		line-height: 1.6;
+	.service-info {
+		flex: 1;
 	}
 
-	@media (max-width: 768px) {
-		.services-grid {
-			grid-template-columns: 1fr;
+	.service-info h3 {
+		font-size: 1.2rem;
+		color: var(--color-ink);
+		margin-bottom: 0.3rem;
+		transition: color 0.2s ease;
+	}
+
+	.service-row:hover .service-info h3 {
+		color: var(--color-amber);
+	}
+
+	.service-info p {
+		font-size: 0.88rem;
+		color: var(--color-muted);
+		margin: 0;
+		line-height: 1.55;
+	}
+
+	.service-arrow {
+		font-size: 1.2rem;
+		color: var(--color-amber);
+		opacity: 0;
+		transform: translateX(-10px);
+		transition: all 0.25s ease;
+		flex-shrink: 0;
+	}
+
+	.service-row:hover .service-arrow {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	@media (max-width: 600px) {
+		.service-row {
+			gap: var(--spacing-sm);
+		}
+
+		.service-row:hover {
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			margin: 0 -0.5rem;
 		}
 	}
 </style>
